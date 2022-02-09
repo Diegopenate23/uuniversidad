@@ -1,0 +1,48 @@
+﻿@page
+@model ContosoUniversity.Pages.Students.IndexModel
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Fecha de registro
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Student) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstMidName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalles</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@page
+@model ContosoUniversity.Pages.Students.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Seguro desea eliminar este estudiante?</h3>
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Apellido
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            Nombre
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.FirstMidName)
+        </dd>
+        <dt class="col-sm-2">
+            Fecha de registro
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.EnrollmentDate)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Student.ID" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-page="./Index">Volver a la lista</a>
+    </form>
+</div>
